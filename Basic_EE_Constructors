@@ -1,0 +1,112 @@
+import java.awt.*;
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.math.*;
+
+public class electricalEquations {
+	
+	
+	// calculating voltage using ohm's law 
+	public void ohms_law_voltage() {
+		String cur = JOptionPane.showInputDialog("please enter the current value in amps (A)");
+		String res = JOptionPane.showInputDialog("please enter the resistance value in ohms (ohms)");
+		double current = Double.parseDouble(cur);
+		double resistance = Double.parseDouble(res);
+		double voltage;
+		voltage=current*resistance;
+		JOptionPane.showMessageDialog(null, "The calculated value of the voltage is " + voltage + "volts");}
+	
+	// calculating resistance using ohm's law
+	public void ohms_law_resistance() {
+		String volt = JOptionPane.showInputDialog("please enter the voltage value in volts (V)");
+		String cur = JOptionPane.showInputDialog("please enter the current value in amps (A)");
+		double voltage = Double.parseDouble(volt);
+		double current = Double.parseDouble(cur);
+		double resistance;
+		resistance=voltage/current;
+		JOptionPane.showMessageDialog(null, "The calculated value of the resistance is " + resistance + "ohms");}
+	
+	// calculating resistance using ohm's law
+	public void ohms_law_current() {
+		String volt = JOptionPane.showInputDialog("please enter the voltage value in volts (V)");
+		String res = JOptionPane.showInputDialog("please enter the resistance value in ohms (ohms)");
+		double voltage = Double.parseDouble(volt);
+		double resistance = Double.parseDouble(res);
+		double current;
+		current=voltage/resistance;
+		JOptionPane.showMessageDialog(null, "The calculated value of the current is " + current + "amps");}
+	
+	// calculating electrical power using ohm's law
+	public void ohms_law_power() {
+		String volt = JOptionPane.showInputDialog("please enter the voltage value in volts (V)");
+		String cur = JOptionPane.showInputDialog("please enter the current value in amps (A)");
+		double voltage = Double.parseDouble(volt);
+		double current = Double.parseDouble(cur);
+		double power;
+		power=voltage*current;
+		JOptionPane.showMessageDialog(null, "The calculated value of the current is " + power + " watts");}
+	
+	// calculating electrical copper losses
+	public void copper_losses() {
+		String res = JOptionPane.showInputDialog("please enter the resistance value in ohms (ohms)");
+		String cur = JOptionPane.showInputDialog("please enter the current value in amps (A)");
+		double resistance = Double.parseDouble(res);
+		double current = Double.parseDouble(cur);
+		double power;
+		power=resistance*Math.pow(current, 2);
+		JOptionPane.showMessageDialog(null, "The calculated value of the current is " + power + " watts");}
+	
+	// calculating the voltage divider 
+	public void voltage_divider() {
+		String v_s = JOptionPane.showInputDialog("please enter the source voltage value in V (volts)");
+		String r2 = JOptionPane.showInputDialog("please enter the R2 value in ohms (ohms)");
+		String r1 = JOptionPane.showInputDialog("please enter the R1 value in ohms (ohms)");
+		double source_voltage = Double.parseDouble(v_s); 
+		double resistance1 = Double.parseDouble(r1);
+		double resistance2 = Double.parseDouble(r2); 
+		double Vout; 
+		Vout=source_voltage*(resistance2/(resistance1+resistance2));
+		JOptionPane.showMessageDialog(null, "The calculated value of the Vout is " + Vout + " volts");}
+	
+	// calculating the star to delta conversion 
+	public void star_to_delta() {
+		String res1 = JOptionPane.showInputDialog("please enter the R1 value in ohms (ohms)");
+		String res2 = JOptionPane.showInputDialog("please enter the R2 value in ohms (ohms)");
+		String res3 = JOptionPane.showInputDialog("please enter the R3 value in ohms (ohms)");
+		double r1 = Double.parseDouble(res1);
+		double r2 = Double.parseDouble(res2);
+		double r3 = Double.parseDouble(res3);
+		double ra,rb,rc;
+		ra = ((r1*r2 + r1*r3 + r2*r3)/r1);
+		rb = ((r1*r2 + r1*r3 + r2*r3)/r2);
+		rc = ((r1*r2 + r1*r3 + r2*r3)/r3);
+		ra = Math.round(ra);
+		rb = Math.round(rb);
+		rc = Math.round(rc);
+		JOptionPane.showMessageDialog(null, String.format("The calculated values of the RA,RB,RC are as follows:\nRA: %s ohms\n RB: %s ohms\n RC: %s ohms\n", ra, rb, rc));
+	}
+	
+	// calculating the delta to star conversion 
+	public void delta_to_star() {
+		String res_a = JOptionPane.showInputDialog("please enter the R1 value in ohms (ohms)");
+		String res_b = JOptionPane.showInputDialog("please enter the R2 value in ohms (ohms)");
+		String res_c = JOptionPane.showInputDialog("please enter the R3 value in ohms (ohms)");
+		double ra = Double.parseDouble(res_a);
+		double rb = Double.parseDouble(res_b);
+		double rc = Double.parseDouble(res_c);
+		double r1,r2,r3;
+		r1 = (rb*rc)/(ra+rb+rc);
+		r2 = (ra*rc)/(ra+rb+rc);
+		r3 = (ra*rb)/(ra+rb+rc);
+		r1 = Math.round(r1);
+		r2 = Math.round(r2);
+		r3 = Math.round(r3);
+		JOptionPane.showMessageDialog(null, String.format("The calculated values of the R1,R2,R3 are as follows:\nR1: %s ohms\n R2: %s ohms\n R3: %s ohms\n", r1, r2, r3));
+	}
+	
+	
+
+}
+	
