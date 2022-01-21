@@ -1,0 +1,126 @@
+
+
+import java.awt.*;
+import java.awt.event.*;
+
+
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class Engineering_GUI extends JFrame {
+	private JButton 
+	equation_1, equation_2, equation_3, equation_4, 
+	equation_5, equation_6, equation_7, equation_8,
+	terminate_program;
+	
+	electricalEquations basic_eletrical = new electricalEquations();
+
+	public Engineering_GUI() {
+		super("Engineering Calculator Program"); 
+		
+		setLayout(new FlowLayout());
+	
+		equation_1 = new JButton("Equation: Ohm's Law - Voltage");
+		add(equation_1);
+		
+		equation_2 = new JButton("Equation: Ohm's Law - Resistance");
+		add(equation_2);
+		
+		equation_3 = new JButton("Equation: Ohm's Law - Current");
+		add(equation_3);
+		
+		equation_4 = new JButton("Equation: Ohm's Law - Power");
+		add(equation_4);
+		
+		equation_5 = new JButton("Equation: Copper Losses");
+		add(equation_5);
+		
+		equation_6 = new JButton("Equation: Voltage Divider");
+		add(equation_6);
+		
+		equation_7 = new JButton("Equation: Star to Delta Conversion");
+		add(equation_7);
+		
+		equation_8 = new JButton("Equation: Delta to Star Conversion");
+		add(equation_8);
+		
+		terminate_program = new JButton("Exit Program");
+		add(terminate_program);
+		
+		
+
+		HandlerClassEngineering handler_engineering = new HandlerClassEngineering();
+		equation_1.addActionListener(handler_engineering);
+		equation_2.addActionListener(handler_engineering);
+		equation_3.addActionListener(handler_engineering);
+		equation_4.addActionListener(handler_engineering);
+		equation_5.addActionListener(handler_engineering);
+		equation_6.addActionListener(handler_engineering);
+		equation_7.addActionListener(handler_engineering);
+		equation_8.addActionListener(handler_engineering);
+		terminate_program.addActionListener(handler_engineering);
+		
+		}
+	
+	public class HandlerClassEngineering implements ActionListener{ 
+		public void actionPerformed(ActionEvent engineering_event) 
+		{
+			while(engineering_event.getActionCommand() =="Exit Program")
+			{System.exit(0);}
+				
+			while(engineering_event.getActionCommand() =="Equation: Ohm's Law - Voltage") 
+			{System.out.println("Success");
+			basic_eletrical.ohms_law_voltage();
+			System.exit(0);		
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Ohm's Law - Resistance") 
+			{System.out.println("Success");
+			basic_eletrical.ohms_law_resistance();
+		    System.exit(0);	
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Ohm's Law - Current") 
+			{System.out.println("Success");
+			basic_eletrical.ohms_law_current();
+		    System.exit(0);	
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Ohm's Law - Power") 
+			{System.out.println("Success");
+			basic_eletrical.ohms_law_power();
+		    System.exit(0);	
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Copper Losses") 
+			{System.out.println("Success");
+			basic_eletrical.copper_losses();
+		    System.exit(0);	
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Voltage Divider") 
+			{System.out.println("Success");
+			basic_eletrical.voltage_divider();
+		    System.exit(0);	
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Star to Delta Conversion") 
+			{System.out.println("Success");
+			basic_eletrical.star_to_delta();
+		    System.exit(0);	
+			}
+			
+			while(engineering_event.getActionCommand() =="Equation: Delta to Star Conversion") 
+			{System.out.println("Success");
+			basic_eletrical.delta_to_star();
+		    System.exit(0);	
+			}
+
+			
+		
+			
+			} 
+	} 
+
+}
+
