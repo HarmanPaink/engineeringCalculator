@@ -1,0 +1,77 @@
+import java.awt.*;
+import java.awt.event.*;
+
+
+import javax.swing.*;
+import javax.swing.event.*;
+
+
+public class SubCategoryGUI extends JFrame implements ActionListener{
+	
+	private JComboBox electrical_dropdown, mechanical_dropdown;
+	
+	electrical_rf_GUI ee_rf_obj = new electrical_rf_GUI();
+	
+	Engineering_GUI engineering_gui_obj= new Engineering_GUI();
+	
+	private String electrical_categories[] = {
+			"Electrical: Basic", 
+			"Electrical: RF Engineering", 
+			"Electrical: AC Equations",
+			"Electrical: High Voltage Engineering",
+			"Electrical: AC Motors",
+			"Electrical: DC Motors"
+			};
+	
+	private String mechanical_categories[] = {
+			"Mechanical: Basic", 
+			"Mechanical: Thermodynamics", 
+			"Mechanical: Fluid Mechanics-Dynamics",
+			"Mechanical: Structural",
+			"Mechanical: Mech Power",
+			"Mechanical: Internal Combustion Engines"
+			};
+	
+	
+	
+public SubCategoryGUI() {
+	super("Engineering Calculator Program"); 
+	setLayout(new FlowLayout());
+	
+	
+
+	electrical_dropdown = new JComboBox(electrical_categories);
+	electrical_dropdown.addActionListener(this);
+	mechanical_dropdown = new JComboBox(mechanical_categories);
+	mechanical_dropdown.addActionListener(this);
+
+		add(electrical_dropdown);
+		add(mechanical_dropdown);
+		
+	
+}
+
+
+public void actionPerformed(ActionEvent e) {
+	if(e.getSource()==electrical_dropdown) {
+		
+		if(electrical_dropdown.getSelectedItem()=="Electrical: Basic") 
+		{
+			engineering_gui_obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			engineering_gui_obj.setSize(400,400);
+			engineering_gui_obj.setVisible(true);}
+		
+		if(electrical_dropdown.getSelectedItem()=="Electrical: RF Engineering") 
+		{
+			ee_rf_obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			ee_rf_obj.setSize(400,400);
+			ee_rf_obj.setVisible(true);}
+		}
+			
+		
+	}
+	
+}
+
+
+
