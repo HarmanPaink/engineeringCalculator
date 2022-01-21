@@ -1,0 +1,61 @@
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class electrical_rf_GUI extends JFrame {
+	
+	private JButton equation_1, equation_2, equation_3, terminate_program;
+	
+	electrical_rf_equations rf_eq = new electrical_rf_equations();
+	
+	public electrical_rf_GUI() {
+
+		super("Engineering Calculator Program"); 
+		
+		setLayout(new FlowLayout());
+	
+		equation_1 = new JButton("RF - Equation: Voltage Ratio");
+		add(equation_1);
+		
+		equation_2 = new JButton("RF - Equation: Power Ratio");
+		add(equation_2);
+		
+		equation_3 = new JButton("RF - Equation: Friis' Transmission Equation");
+		add(equation_3);
+		
+		terminate_program = new JButton("Exit Program");
+		add(terminate_program);
+		
+		HandlerClass_RF_Engineering handler_rf_engineering = new HandlerClass_RF_Engineering();
+		equation_1.addActionListener(handler_rf_engineering);
+		equation_2.addActionListener(handler_rf_engineering);
+		equation_3.addActionListener(handler_rf_engineering);
+		terminate_program.addActionListener(handler_rf_engineering);
+		}
+	
+	public class HandlerClass_RF_Engineering implements ActionListener{
+		public void actionPerformed(ActionEvent rf_engineering_event) 
+		{
+			while(rf_engineering_event.getActionCommand() =="Exit Program")
+			{System.exit(0);}
+			
+			while(rf_engineering_event.getActionCommand() =="RF - Equation: Voltage Ratio") 
+			{System.out.println("Success");
+			rf_eq.voltage_ratio();
+			System.exit(0);}
+			
+			while(rf_engineering_event.getActionCommand() =="RF - Equation: Power Ratio") 
+			{System.out.println("Success");
+			rf_eq.power_ratio();
+			System.exit(0);}
+			
+			while(rf_engineering_event.getActionCommand() =="RF - Equation: Friis' Transmission Equation") 
+			{System.out.println("Success");
+			rf_eq.Friis_transmission_eq();
+			System.exit(0);}
+		}
+	}
+
+
+}
