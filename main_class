@@ -1,0 +1,18 @@
+import java.awt.*;
+import java.util.*;
+
+import javax.swing.JFrame;
+public class main_class {
+
+	public static void main (String args[]) {
+	
+		
+
+	FirstPageGUI firstpage_gui_obj = new FirstPageGUI();
+	firstpage_gui_obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	firstpage_gui_obj.setSize(400,400);
+	firstpage_gui_obj.setVisible(true);
+
+	}
+
+}
