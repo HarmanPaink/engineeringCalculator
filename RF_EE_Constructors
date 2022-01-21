@@ -1,0 +1,46 @@
+import java.awt.*;
+import java.util.*;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.*;
+import java.math.*;
+
+public class electrical_rf_equations {
+	
+	public void voltage_ratio(){
+	String p2 = JOptionPane.showInputDialog("please enter the p2 value in watts (W)");
+	String p1 = JOptionPane.showInputDialog("please enter the p1 value in watts (W)");
+	double power2 = Double.parseDouble(p2);
+	double power1 = Double.parseDouble(p1);
+	double dB_aV;
+	dB_aV=20*Math.log(power2/power1);
+	JOptionPane.showMessageDialog(null, "The calculated value of the voltage ratio is " + dB_aV + " dB");}
+	
+	public void power_ratio(){
+		String p2 = JOptionPane.showInputDialog("please enter the p2 value in watts (W)");
+		String p1 = JOptionPane.showInputDialog("please enter the p1 value in watts (W)");
+		double power2 = Double.parseDouble(p2);
+		double power1 = Double.parseDouble(p1);
+		double dB_aP;
+		dB_aP=20*Math.log10(power2/power1);
+		JOptionPane.showMessageDialog(null, "The calculated value of the voltage ratio is " + dB_aP + " dB");}
+	
+	public void Friis_transmission_eq(){
+		String pt = JOptionPane.showInputDialog("please enter the transmitted power value in watts (W)");
+		String gt = JOptionPane.showInputDialog("please enter the transmitter gain value");
+		String gr = JOptionPane.showInputDialog("please enter the reciever antenna gain value");
+		String lamb = JOptionPane.showInputDialog("please enter the wavelength (velocity divided by frequnecy) value");
+		String dist = JOptionPane.showInputDialog("please enter the distance between the transmitter and reciever");
+		double power_transmit = Double.parseDouble(pt);
+		double gain_trans = Double.parseDouble(gt);
+		double gain_rec = Double.parseDouble(gr);
+		double lambda = Double.parseDouble(lamb);
+		double distance = Double.parseDouble(dist);
+		double power_rec;
+		power_rec = (power_transmit*gain_trans*gain_rec*Math.pow(lambda, 2))/((Math.pow(4*3.14159265, 2)*Math.pow(distance,2)));
+		JOptionPane.showMessageDialog(null, "The calculated value of the voltage ratio is " + power_rec + " W");}
+
+	
+
+
+}
