@@ -1,0 +1,48 @@
+import java.awt.*;
+import java.awt.event.*;
+
+
+import javax.swing.*;
+import javax.swing.event.*;
+
+public class FirstPageGUI extends JFrame{
+	private JButton ee_equations, me_equations;
+	
+	Engineering_GUI engineering_gui_obj= new Engineering_GUI();
+	
+	SubCategoryGUI subCategory_gui_obj = new SubCategoryGUI();
+	
+public FirstPageGUI() {
+	super("Engineering Calculator Program"); 
+	setLayout(new FlowLayout());
+	ee_equations = new JButton("Electrical Engineering Equations");
+	add(ee_equations);
+	me_equations = new JButton("Mechanical Engineering Equations");
+	add(me_equations);
+	
+	HandlerClassFirstPage handler = new HandlerClassFirstPage();
+	ee_equations.addActionListener(handler);
+	me_equations.addActionListener(handler);
+	}
+private class HandlerClassFirstPage implements ActionListener{
+	public void actionPerformed(ActionEvent event_firstpage)
+	{
+		if(event_firstpage.getActionCommand() == "Electrical Engineering Equations")
+		{
+			subCategory_gui_obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			subCategory_gui_obj.setSize(400,400);
+			subCategory_gui_obj.setVisible(true);
+		}
+		
+		if(event_firstpage.getActionCommand() == "Mechanical Engineering Equations")
+		{
+			subCategory_gui_obj.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			subCategory_gui_obj.setSize(400,400);
+			subCategory_gui_obj.setVisible(true);
+		}
+		
+	}
+	
+}
+
+}
